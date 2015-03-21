@@ -148,6 +148,7 @@
             "youtube.ru"});
             this.adress.Name = "adress";
             this.adress.Size = new System.Drawing.Size(500, 25);
+            this.adress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.adress_KeyDown_1);
             // 
             // zakladki
             // 

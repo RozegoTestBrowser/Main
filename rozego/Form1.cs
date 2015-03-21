@@ -61,7 +61,7 @@ namespace rozego
 
         private void home_Click(object sender, EventArgs e)
         {
-            browser.Navigate("http://youtube.ru");
+            browser.Navigate("http://youtube.ru");//при загрузке сразу переходит на ютуб
         }
 
         private void adress_KeyDown(object sender, KeyEventArgs e)
@@ -74,7 +74,7 @@ namespace rozego
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            browser.Navigate("http://youtube.ru");
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -118,15 +118,13 @@ namespace rozego
             browser.GoBack();
         }
 
-        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        private void adress_KeyDown_1(object sender, KeyEventArgs e)
         {
-           
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-           
+            if (e.KeyCode == Keys.Enter)
+            {
+                start.PerformClick();//событие запускающее кнопку "Go" по нажатию enter
             }
+        }
         }
 
     }
