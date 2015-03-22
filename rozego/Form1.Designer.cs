@@ -90,41 +90,41 @@
             // 
             // forward
             // 
-            this.forward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.forward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.forward.Image = ((System.Drawing.Image)(resources.GetObject("forward.Image")));
             this.forward.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.forward.Name = "forward";
-            this.forward.Size = new System.Drawing.Size(50, 22);
+            this.forward.Size = new System.Drawing.Size(23, 22);
             this.forward.Text = "Вперед";
             this.forward.Click += new System.EventHandler(this.forward_Click);
             // 
             // refresh
             // 
-            this.refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.refresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.refresh.Image = ((System.Drawing.Image)(resources.GetObject("refresh.Image")));
             this.refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(65, 22);
+            this.refresh.Size = new System.Drawing.Size(23, 22);
             this.refresh.Text = "Обновить";
             this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // stop
             // 
-            this.stop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.stop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.stop.Image = ((System.Drawing.Image)(resources.GetObject("stop.Image")));
             this.stop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.stop.Name = "stop";
-            this.stop.Size = new System.Drawing.Size(38, 22);
+            this.stop.Size = new System.Drawing.Size(23, 22);
             this.stop.Text = "Стоп";
             this.stop.Click += new System.EventHandler(this.stop_Click);
             // 
             // home
             // 
-            this.home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.home.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.home.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
             this.home.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.home.Name = "home";
-            this.home.Size = new System.Drawing.Size(49, 22);
+            this.home.Size = new System.Drawing.Size(23, 22);
             this.home.Text = "Домой";
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
@@ -263,7 +263,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabControl1.Location = new System.Drawing.Point(0, 49);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
