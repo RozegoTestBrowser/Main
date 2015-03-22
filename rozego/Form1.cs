@@ -18,92 +18,82 @@ namespace rozego
             InitializeComponent();
         }
 
+        WebBrowser web = new WebBrowser();
+        int i = 0;
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            web = new WebBrowser();
+            web.ScriptErrorsSuppressed = true;
+            web.Dock = DockStyle.Fill;
+            web.Visible = true;
+            web.DocumentCompleted += web_DocumentCompleted;
+            tabControl1.TabPages.Add("New Tab");
+            tabControl1.SelectTab(i);
+            tabControl1.SelectedTab.Controls.Add(web);
+            i += 1; 
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("http://youtube.ru");//при загрузке сразу переходит на ютуб
+           
+        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
-           browser.GoBack();
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoBack();
             
         }
 
-        private void forward_Click(object sender, EventArgs e)
+        private void forward_Click(object sender, EventArgs e) 
         {
-            browser.GoForward();
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoForward();
         }
 
         private void refresh_Click(object sender, EventArgs e)
         {
-            browser.Refresh();
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Refresh();
         }
 
-        private void adress_Click(object sender, EventArgs e)
+        void web_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-
-        }
-
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            adress.Text = browser.Url.ToString();
-            toolStripStatusLabel1.Visible = true;        
+            tabControl1.SelectedTab.Text = ((WebBrowser)tabControl1.SelectedTab.Controls[0]).DocumentTitle;      
 
         }
 
         private void start_Click(object sender, EventArgs e)
         {
-            browser.Navigate("http://" + adress.Text);
-            adress.AutoCompleteCustomSource.Add(adress.Text);
-            browser.Navigate(adress.Text);
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(adress.Text);
             if (!adress.Items.Contains(adress.Text))
             {
                 adress.Items.Add(adress.Text);
             }
+        
         }
 
         private void home_Click(object sender, EventArgs e)
         {
-            browser.Navigate("http://youtube.ru");
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("http://youtube.ru");
         }
 
         private void adress_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                browser.Navigate(adress.Text);
+                ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(adress.Text);
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void Form1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void stop_Click(object sender, EventArgs e)
         {
-            browser.Stop();
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
         }
 
-        private void adress_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void browser_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        private void tabControl1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {
             toolStripProgressBar1.Maximum = (int)e.MaximumProgress;
             toolStripProgressBar1.Value = ((int)e.CurrentProgress < 0 || (int)e.MaximumProgress < (int)e.CurrentProgress) ? (int)e.MaximumProgress : (int)e.CurrentProgress;
         }
 
-        private void browser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        private void TabControl1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             toolStripStatusLabel1.Visible = false;
         }
@@ -113,22 +103,49 @@ namespace rozego
 
         }
 
-        private void назадToolStripMenuItem_Click(object sender, EventArgs e)
+        private void adress_KeyDown_1(object sender, KeyEventArgs e)
         {
-            browser.GoBack();
+            if (e.KeyCode == Keys.Enter)
+            {
+                start.PerformClick();//событие з345234512354апускающее кнопку "Go" по нажатию enter
+            }
         }
 
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
-           
+            web = new WebBrowser();
+            web.ScriptErrorsSuppressed = true;
+            web.Dock = DockStyle.Fill;
+            web.Visible = true;
+            web.DocumentCompleted += web_DocumentCompleted;
+            tabControl1.TabPages.Add("New Tab");
+            tabControl1.SelectTab(i);
+            tabControl1.SelectedTab.Controls.Add(web);
+            i += 1;
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-           
+             if (tabControl1.TabPages.Count - 1 > 0)
+            {
+                tabControl1.TabPages.RemoveAt(tabControl1.SelectedIndex);
+                tabControl1.SelectTab(tabControl1.TabPages.Count -1);
+                i -= 1;
             }
+
         }
 
+        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                Back.PerformClick();//событие запускающее кнопку "Go" по нажатию enter
+            }
+
+        }
     }
+
+}
 
 
