@@ -233,9 +233,8 @@
             // назадToolStripMenuItem
             // 
             this.назадToolStripMenuItem.Name = "назадToolStripMenuItem";
-            this.назадToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.назадToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.назадToolStripMenuItem.Text = "Назад";
-            this.назадToolStripMenuItem.Click += new System.EventHandler(this.назадToolStripMenuItem_Click);
             // 
             // правкаToolStripMenuItem
             // 

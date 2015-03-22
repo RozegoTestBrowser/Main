@@ -53,11 +53,6 @@ namespace rozego
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Refresh();
         }
 
-        private void adress_Click(object sender, EventArgs e)
-        {
-
-        }
-
         void web_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             tabControl1.SelectedTab.Text = ((WebBrowser)tabControl1.SelectedTab.Controls[0]).DocumentTitle;      
@@ -76,7 +71,7 @@ namespace rozego
 
         private void home_Click(object sender, EventArgs e)
         {
-            //browser.Navigate("http://youtube.ru");
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("http://youtube.ru");
         }
 
         private void adress_KeyDown(object sender, KeyEventArgs e)
@@ -98,11 +93,6 @@ namespace rozego
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
         }
 
-        private void adress_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
@@ -122,11 +112,6 @@ namespace rozego
         private void zakladki_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void назадToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //browser.GoBack();
         }
 
         private void adress_KeyDown_1(object sender, KeyEventArgs e)
