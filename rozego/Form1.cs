@@ -36,7 +36,7 @@ namespace rozego
            
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
 
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoBack();
@@ -82,20 +82,9 @@ namespace rozego
             }
         }
 
-        
-        private void Form1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void stop_Click(object sender, EventArgs e)
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tabControl1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
@@ -122,11 +111,6 @@ namespace rozego
             }
         }
 
-        void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripButton1_Click_1(object sender, EventArgs e)
         {
             web = new WebBrowser();
@@ -151,8 +135,17 @@ namespace rozego
             }
 
         }
-        }
 
+        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+            {
+                Back.PerformClick();//событие запускающее кнопку "Go" по нажатию enter
+            }
+
+        }
     }
+
+}
 
 

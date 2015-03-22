@@ -86,7 +86,6 @@
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(23, 22);
             this.Back.Text = "Назад";
-            this.Back.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // forward
             // 
@@ -201,7 +200,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(35, 17);
             this.toolStripStatusLabel1.Text = "Done";
             this.toolStripStatusLabel1.Visible = false;
-            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // toolStripProgressBar1
             // 
@@ -268,7 +266,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1228, 484);
             this.tabControl1.TabIndex = 4;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // Form1
             // 
