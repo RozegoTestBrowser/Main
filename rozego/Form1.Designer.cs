@@ -39,7 +39,8 @@
             this.start = new System.Windows.Forms.ToolStripButton();
             this.adress = new System.Windows.Forms.ToolStripComboBox();
             this.zakladki = new System.Windows.Forms.ToolStripButton();
-            this.browser = new System.Windows.Forms.WebBrowser();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -68,20 +69,22 @@
             this.toolStripSeparator1,
             this.start,
             this.adress,
-            this.zakladki});
+            this.zakladki,
+            this.toolStripButton1,
+            this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1016, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1228, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // Back
             // 
-            this.Back.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Back.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.Back.Image = ((System.Drawing.Image)(resources.GetObject("Back.Image")));
             this.Back.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(43, 22);
+            this.Back.Size = new System.Drawing.Size(23, 22);
             this.Back.Text = "Назад";
             this.Back.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -142,12 +145,13 @@
             // 
             // adress
             // 
+            this.adress.DropDownWidth = 500;
             this.adress.Items.AddRange(new object[] {
             "yandex.ru",
             "google.ru",
             "youtube.ru"});
             this.adress.Name = "adress";
-            this.adress.Size = new System.Drawing.Size(500, 25);
+            this.adress.Size = new System.Drawing.Size(350, 25);
             this.adress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.adress_KeyDown_1);
             // 
             // zakladki
@@ -160,26 +164,34 @@
             this.zakladki.Text = "Закладки";
             this.zakladki.Click += new System.EventHandler(this.zakladki_Click);
             // 
-            // browser
+            // toolStripButton1
             // 
-            this.browser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.browser.Location = new System.Drawing.Point(0, 49);
-            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(1016, 392);
-            this.browser.TabIndex = 3;
-            this.browser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
-            this.browser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.browser_Navigated);
-            this.browser.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.browser_ProgressChanged);
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(109, 22);
+            this.toolStripButton1.Text = "Добавить вкладку";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(101, 22);
+            this.toolStripButton2.Text = "Удалить вкладку";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 419);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1016, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1228, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -206,7 +218,7 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1228, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -221,7 +233,7 @@
             // назадToolStripMenuItem
             // 
             this.назадToolStripMenuItem.Name = "назадToolStripMenuItem";
-            this.назадToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.назадToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.назадToolStripMenuItem.Text = "Назад";
             this.назадToolStripMenuItem.Click += new System.EventHandler(this.назадToolStripMenuItem_Click);
             // 
@@ -251,22 +263,21 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 49);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1016, 370);
+            this.tabControl1.Size = new System.Drawing.Size(1228, 484);
             this.tabControl1.TabIndex = 4;
-            this.tabControl1.Visible = false;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 441);
+            this.ClientSize = new System.Drawing.Size(1228, 555);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.browser);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -294,7 +305,6 @@
         private System.Windows.Forms.ToolStripButton home;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton start;
-        private System.Windows.Forms.WebBrowser browser;
         private System.Windows.Forms.ToolStripButton stop;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripButton zakladki;
@@ -307,8 +317,10 @@
         private System.Windows.Forms.ToolStripMenuItem закладкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem назадToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStripComboBox adress;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }
 
