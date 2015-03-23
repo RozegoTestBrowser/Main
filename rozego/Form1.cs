@@ -33,33 +33,34 @@ namespace rozego
             tabControl1.SelectedTab.Controls.Add(web);
             i += 1; 
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("http://youtube.ru");//при загрузке сразу переходит на ютуб
+               
            
-        }
+        } // Загрузка домашний страницы
 
         private void Back_Click(object sender, EventArgs e)
         {
 
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoBack();
             
-        }
+        }// нажатие кнопки назад 
 
         private void forward_Click(object sender, EventArgs e) 
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoForward();
-        }
+        } // нажатие кнопки вперед
 
         private void refresh_Click(object sender, EventArgs e)
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Refresh();
-        }
+        }// нажатие кнопки обновить 
 
-        void web_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        void web_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) // когда страница загрузилась отображает название вкладки
         {
             tabControl1.SelectedTab.Text = ((WebBrowser)tabControl1.SelectedTab.Controls[0]).DocumentTitle;      
 
         }
 
-        private void start_Click(object sender, EventArgs e)
+        private void start_Click(object sender, EventArgs e) // нажатие кнопки GO
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(adress.Text);
             if (!adress.Items.Contains(adress.Text))
@@ -72,9 +73,9 @@ namespace rozego
         private void home_Click(object sender, EventArgs e)
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate("http://youtube.ru");
-        }
+        } // нажатие кнопки домой 
 
-        private void adress_KeyDown(object sender, KeyEventArgs e)
+        private void adress_KeyDown(object sender, KeyEventArgs e) // переходит по нажатию enter
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -85,33 +86,23 @@ namespace rozego
         private void stop_Click(object sender, EventArgs e)
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
-        }
+        }// нажатие кнопки стоп
 
-        private void tabControl1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        private void tabControl1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e) // прогресс бар 
         {
             toolStripProgressBar1.Maximum = (int)e.MaximumProgress;
-            toolStripProgressBar1.Value = ((int)e.CurrentProgress < 0 || (int)e.MaximumProgress < (int)e.CurrentProgress) ? (int)e.MaximumProgress : (int)e.CurrentProgress;
+            if (e.CurrentProgress > 1) toolStripProgressBar1.Value = (int)e.CurrentProgress;
         }
-
-        private void TabControl1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
-        {
-            toolStripStatusLabel1.Visible = false;
-        }
-
-        private void zakladki_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void adress_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                start.PerformClick();//событие запускающее кнопку "Go" по нажатию enter
+                start.PerformClick();
             }
-        }
+        } //событие запускающее кнопку "Go" по нажатию enter
 
-        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        private void toolStripButton1_Click_1(object sender, EventArgs e) // кнопка добавить вкладку
         {
             web = new WebBrowser();
             web.ScriptErrorsSuppressed = true;
@@ -134,7 +125,7 @@ namespace rozego
                 i -= 1;
             }
 
-        }
+        } // закрытие вкладки
 
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -144,6 +135,7 @@ namespace rozego
             }
 
         }
+        
     }
 
 }
