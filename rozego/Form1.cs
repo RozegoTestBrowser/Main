@@ -60,6 +60,7 @@ namespace rozego
 
         }
 
+
         private void start_Click(object sender, EventArgs e) // нажатие кнопки GO
         {
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Navigate(adress.Text);
@@ -134,6 +135,14 @@ namespace rozego
                 Back.PerformClick();//событие запускающее кнопку "Go" по нажатию enter
             }
 
+        }
+
+        private void zakladki_Click(object sender, EventArgs e)
+        {
+                Favorites fav = new Favorites();
+                fav.urlTxt.Text = web.Url.ToString();
+                fav.StartPosition = FormStartPosition.CenterParent;
+                fav.Show();
         }
         
     }
