@@ -13,6 +13,8 @@ namespace rozego
 {
     public partial class Form1 : Form
     {
+        public static int totalBytes = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -55,8 +57,10 @@ namespace rozego
 
         void web_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            tabControl1.SelectedTab.Text = ((WebBrowser)tabControl1.SelectedTab.Controls[0]).DocumentTitle;      
-
+            tabControl1.SelectedTab.Text = ((WebBrowser)tabControl1.SelectedTab.Controls[0]).DocumentTitle;
+            int totalCount = 100 - progbar1.Value;
+            progbar1.Value += totalCount;
+            progLabel1.Visible = true;
         }
 
         private void start_Click(object sender, EventArgs e)
@@ -87,15 +91,18 @@ namespace rozego
             ((WebBrowser)tabControl1.SelectedTab.Controls[0]).Stop();
         }
 
-        private void tabControl1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
+        private void web_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {
-            toolStripProgressBar1.Maximum = (int)e.MaximumProgress;
-            toolStripProgressBar1.Value = ((int)e.CurrentProgress < 0 || (int)e.MaximumProgress < (int)e.CurrentProgress) ? (int)e.MaximumProgress : (int)e.CurrentProgress;
+            //totalBytes++;
+            //if (totalBytes>75)
+            //{
+             //   totalBytes = totalBytes - 50;
+            //}
+            //progbar1.Value = totalBytes;
         }
 
         private void TabControl1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
-            toolStripStatusLabel1.Visible = false;
         }
 
         private void zakladki_Click(object sender, EventArgs e)
@@ -122,7 +129,6 @@ namespace rozego
             tabControl1.SelectTab(i);
             tabControl1.SelectedTab.Controls.Add(web);
             i += 1;
-
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -144,6 +150,12 @@ namespace rozego
             }
 
         }
+
+        private void Back_Click_1(object sender, EventArgs e)
+        {
+            ((WebBrowser)tabControl1.SelectedTab.Controls[0]).GoBack();
+        }
+
     }
 
 }

@@ -42,8 +42,8 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.progbar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.progLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.основноеМенюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.назадToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +86,7 @@
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(23, 22);
             this.Back.Text = "Назад";
+            this.Back.Click += new System.EventHandler(this.Back_Click_1);
             // 
             // forward
             // 
@@ -186,25 +187,25 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripProgressBar1});
+            this.progbar1,
+            this.progLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 533);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1228, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // progbar1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(35, 17);
-            this.toolStripStatusLabel1.Text = "Done";
-            this.toolStripStatusLabel1.Visible = false;
+            this.progbar1.Name = "progbar1";
+            this.progbar1.Size = new System.Drawing.Size(100, 16);
             // 
-            // toolStripProgressBar1
+            // progLabel1
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            this.progLabel1.Name = "progLabel1";
+            this.progLabel1.Size = new System.Drawing.Size(118, 17);
+            this.progLabel1.Text = "toolStripStatusLabel1";
+            this.progLabel1.Visible = false;
             // 
             // menuStrip1
             // 
@@ -260,7 +261,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 49);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -304,8 +305,6 @@
         private System.Windows.Forms.ToolStripButton stop;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripButton zakladki;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem основноеМенюToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem правкаToolStripMenuItem;
@@ -317,6 +316,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.ToolStripProgressBar progbar1;
+        private System.Windows.Forms.ToolStripStatusLabel progLabel1;
     }
 }
 
